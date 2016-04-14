@@ -1,0 +1,4 @@
+CanaryB was stored in the address after the end of the array - testArray[10]
+CanaryA was stored in the address after canaryB              - testArray[11]
+Arrays are always stored first, then variables
+The last array/variable in the file is stored first, then the one above it and so on
