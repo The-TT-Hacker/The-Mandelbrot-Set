@@ -1,12 +1,31 @@
-/*
- *  pixelColor.h
- *  mandelbrot colors
- *
- *  Created by Richard Buckland on 13/04/11.
- *  Licensed under Creative Commons SA-BY-NC 3.0.  
- *
- */
+#include <math.h>
 
-unsigned char stepsToRed (int steps);
-unsigned char stepsToBlue (int steps);
-unsigned char stepsToGreen (int steps);
+bits8 stepsToRed(bits8 steps){
+   bits8 stepsToRed = 33;
+   if(steps >= 15 && steps <= 90) {
+      stepsToRed = (bits8) 2.8*steps;
+   }
+   if(steps < 15) {
+      stepsToRed = (bits8) pow(steps, 1.2);
+   }
+   return stepsToRed;
+}
+
+bits8 stepsToGreen(bits8 steps){
+   bits8 stepsToGreen = 89;
+   if(steps <= 90) {
+      stepsToGreen = steps;
+   }
+   //if(steps < 34) {
+   //   stepsToGreen = (bits8) pow(steps, 1.2);
+   //}
+   return stepsToGreen;
+}
+
+bits8 stepsToBlue(bits8 steps){
+   bits8 stepsToBlue = 255;
+   if(steps <= 90) {
+     stepsToBlue = (bits8) pow(steps, 2.45)/255;
+   }
+   return stepsToBlue;
+}
